@@ -95,7 +95,8 @@ class Zip implements Adapter
      */
     public function isDirectory($key)
     {
-        return false;
+        $len = strlen($key);
+        return $key[$len - 1] == '/' && ($len > 2 ? $key[$len - 2] != '\\' : true);
     }
 
     /**
